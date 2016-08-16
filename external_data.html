@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<script>
+		/*
+		Loading external data using .json or .csv method.
+		d3.json or d3.csv
+		*/
+		d3.json("data/mydata.json", function (error, data1){
+			console.log(data1);
+			console.log(error); // Checking error is good, if there is any issue with data.
+
+			canvas = d3.select("body").append("svg")
+					.attr("height", 500)
+					.attr("width", 500);
+			
+
+			canvas.selectAll("rect")
+				.data(data1)
+				.enter()
+					.append("rect")
+					.attr("height", 48)
+					.attr("width", function (d) { return d.age * 10 })
+					.attr("fill", "blue")
+					.attr("y", function (d, i){ return i * 50; });
+
+			// Showing lebel for each record
+			canvas.selectAll("text")
+				.data(data1)
+				.enter()
+					.append("text")
+					.text(function (d) { return d.name;})
+					.attr("y", function (d, i){ return i * 50 + 24; })
+					.attr("fill", "white");
+
+				
+		})
+	
+	</script>
+
+</body>	
+</html>

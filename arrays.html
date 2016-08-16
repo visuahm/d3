@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<script>
+
+	var data = [10, 20, 30, 40, 50, 60];
+
+	console.log("data.shift(): " + data.shift());
+	console.log("data.sort(d3.decending): " + data.sort(d3.decending));
+	console.log("d3.min(data): " + d3.min(data));
+	console.log("d3.max(data): " + d3.max(data));
+	console.log("d3.extent(data): " + d3.extent(data));
+	console.log("d3.sum(data): " + d3.sum(data));
+	console.log("d3.mean(data): " + d3.mean(data));
+	console.log("d3.median(data): " + d3.median(data));
+	console.log("d3.shuffle(data): " + d3.shuffle(data));
+	console.log("d3.shuffle(data): " + d3.shuffle(data));
+
+	d3.select("body").append("div").text("Open console and see the array result [10, 20, 30, 40, 50, 60]");
+	
+	</script>
+
+</body>	
+</html>

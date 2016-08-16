@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+<body>
+	<script>
+
+		/* 
+		DOM elements < data elements (enter)
+		DOM elements > data elements (exit)
+		DOM elements = data elements (update)
+		*/
+
+		//var dataArray = [30]; // Exit example
+		var dataArray = [30, 40, 60]; // Enter example
+
+		var canvas = d3.select("body")
+					.append("svg")
+					.attr("width", 500)
+					.attr("height", 500);
+
+		var circle1 = canvas.append("circle")
+					.attr("cx", 50)
+					.attr("cy", 50)
+					.attr("r", 25);
+
+		var circle2 = canvas.append("circle")
+					.attr("cx", 50)
+					.attr("cy", 150)
+					.attr("r", 25);
+		
+		// Exit example (uncomment below)
+		/*var circles = canvas.selectAll("circle")
+					.data(dataArray)
+					.attr("fill", "purple") // Updating
+					.exit()
+						.attr("fill", "green");
+		*/
+		
+		var circles = canvas.selectAll("circle")
+					.data(dataArray)
+					.attr("fill", "purple") // Updating
+					.enter()
+						.append("circle")
+						.attr("fill", "green")
+						.attr("cx", 200)
+						.attr("cy", 200)
+						.attr("r", 100);
+	</script>
+</body>	
+</html>
